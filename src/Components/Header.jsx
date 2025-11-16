@@ -1,12 +1,17 @@
+import { FiPackage } from "react-icons/fi";
+import { IoMdAdd } from "react-icons/io";
+
 function Header() {
     return(
         <div className="cabeca">
-            <span className="logo"></span>
             <div className="header">
-                <h1>Sistema de Estoque</h1>
-                <p>Gerencie seus produtos de forma simples e eficiente</p>
-                <button className="botão"><span>+</span>Novo Produto</button>
+                <span className="logo"><FiPackage  size={40} color="white" /></span>
+                <div>
+                    <h1>Sistema de Estoque</h1>
+                    <p className="cab">Gerencie seus produtos de forma simples e eficiente</p>
+                </div>
             </div>
+            <button className="botao"><IoMdAdd size={20}/> Novo Produto</button>
         </div>
     )
 }

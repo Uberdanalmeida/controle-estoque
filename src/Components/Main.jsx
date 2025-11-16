@@ -1,26 +1,28 @@
+import { FiPackage } from "react-icons/fi";
+
 export default function Main() {
     return(
         <div className="card">
             <div className="cards">
                 <div>
-                    <h2>Total de Produtos</h2>
-                    <span>1</span>
+                    <p>Total de Produtos</p>
+                    <span className="num">1</span>
                 </div>
-                <span>logo</span>
+                <span className="icon"><FiPackage size={30} color="blue"/></span>
             </div>
             <div className="cards">
                 <div>
-                    <h2>Itens em Estoque</h2>
-                    <span>10</span>
+                    <p>Itens em Estoque</p>
+                    <span className="num">10</span>
                 </div>
-                <span>logo</span>
+                <span className="icon"><FiPackage size={30} color="green"/></span>
             </div>
             <div className="cards">
                 <div>
-                    <h2>Valor Total</h2>
-                    <span>R$ 100,00</span>
+                    <p>Valor Total</p>
+                    <span className="num">R$ 100,00</span>
                 </div>
-                <span>logo</span>
+                <span className="icon"><FiPackage size={30} color="blue"/></span>
             </div>
         </div>
     )

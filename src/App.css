@@ -1,17 +1,99 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .butao {
   border: 1px solid black;
+  flex: 1;
+  border-radius: 5px;
+  margin: 15px;
+}
+
+.logo {
+  padding: 5px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: rgb(104, 106, 199);
+  align-items: center;
 }
 
 input {
   border: none;
+  font-style: none;
 }
 
-.a {
+.cabeca {
+  display: flex;
+  box-shadow: 0.5px 0.5px 0.5px black;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.card {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.cards {
+  flex: 1;
+  align-items: center;
+  border-radius: 5px;
+  justify-content: space-between;
+  border: 0.5px solid black;
+  display: flex;
+  margin: 5px;
+  padding: 20px;
+}
+
+.busca {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 220px;
-  height: 50px;
+  width: 200px;
+  margin: 15px;
+}
+
+.header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.botao {
+  background-image: linear-gradient(to right, blue, rgb(0, 0, 255));
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  border: none;
+  justify-content: space-between;
+  width: 200px;
+  color: white;
   padding: 10px;
-  border: 1px solid black;
+}
+
+.num {
+  font-weight: 700;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+h1, .cab {
+  margin-top: 5px;
+}
+
+.icon {
+  display: flex;
+  padding: 5px;
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(199, 218, 221);
 }
