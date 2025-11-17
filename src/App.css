@@ -4,7 +4,8 @@
 }
 
 .butao {
-  border: 1px solid black;
+  box-shadow: 0 0 1.5px black;
+  padding: 10px;
   flex: 1;
   border-radius: 5px;
   margin: 15px;
@@ -14,18 +15,17 @@
   padding: 5px;
   height: 40px;
   border-radius: 4px;
-  background-color: rgb(104, 106, 199);
+  background-color: rgb(82, 113, 197);
   align-items: center;
 }
 
 input {
   border: none;
-  font-style: none;
 }
 
 .cabeca {
   display: flex;
-  box-shadow: 0.5px 0.5px 0.5px black;
+  box-shadow: 0 0 1.5px black;
   align-items: center;
   padding: 20px;
   justify-content: space-between;
@@ -42,7 +42,7 @@ input {
   align-items: center;
   border-radius: 5px;
   justify-content: space-between;
-  border: 0.5px solid black;
+  box-shadow: 0 0 1px black;
   display: flex;
   margin: 5px;
   padding: 20px;
@@ -76,6 +76,7 @@ input {
 }
 
 .num {
+  font-size: 25px;
   font-weight: 700;
 }
 

@@ -11,7 +11,7 @@ function Header() {
                     <p className="cab">Gerencie seus produtos de forma simples e eficiente</p>
                 </div>
             </div>
-            <button className="botao"><IoMdAdd size={20}/> Novo Produto</button>
+            <button className="botao"><IoMdAdd size={20} /> Novo Produto</button>
         </div>
     )
 }
