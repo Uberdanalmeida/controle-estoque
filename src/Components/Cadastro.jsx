@@ -1,14 +1,24 @@
+import { GoPencil } from "react-icons/go";
+import { FaRegTrashAlt } from "react-icons/fa";
+
 export default function Cadastro() {
 
-      const [cadastrar, setCadastrar] = useState([{
-        produto: 'Qualquer coisa',
-        categoria: 12,
-        quantidade: 10,
-        preço: R$100,
-        açoes: ''
-    }])
-
     return (
-        <div></div>
+        <div className="cadastro">
+            <div className="descricao">
+                <span>Produto</span>
+                <span>Categoria</span>
+                <span>Quantidade</span>
+                <span>Preços</span>
+                <span>Ações</span>
+            </div>
+            <div className="cadastrando">
+                <span>qualquer coisa</span>
+                <span>1212</span>
+                <span>10</span>
+                <span>R$ 100,00</span>
+                <span><GoPencil color="blue" /> <FaRegTrashAlt color="red" /></span>
+            </div>
+        </div>
     )
 }

@@ -109,3 +109,26 @@ h1, .cab {
   align-items: center;
   background-color: rgb(199, 218, 221);
 }
+
+.cadastro {
+  margin: 15px;
+  box-shadow: 0 0 1.5px black;
+  border-radius: 5px;
+}
+
+.descricao {
+  display: flex;
+  height: 25px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.cadastrando {
+  display: flex;
+  align-items: center;
+  background-color: #ffff;
+  height: 55px;
+  justify-content: space-between;
+  padding: 10px;
+}
