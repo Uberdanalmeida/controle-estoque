@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1001,
+    "produto": "Teclado Mecânico RGB",
+    "preço": 350.50,
+    "quantidade": 45
+  },
+  {
+    "id": 1002,
+    "produto": "Mouse Óptico Sem Fio",
+    "preço": 95.00,
+    "quantidade": 120
+  },
+  {
+    "id": 1003,
+    "produto": "Monitor LED 27 polegadas",
+    "preço": 1250.99,
+    "quantidade": 22
+  },
+  {
+    "id": 1004,
+    "produto": "Webcam HD com Microfone",
+    "preço": 180.75,
+    "quantidade": 60
+  },
+  {
+    "id": 1005,
+    "produto": "Pendrive 64GB USB 3.0",
+    "preço": 65.20,
+    "quantidade": 250
+  }
+]
