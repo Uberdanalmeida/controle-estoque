@@ -5,7 +5,11 @@ import Aside from "./Components/Aside";
 import Cadastro from './Components/Cadastro';
 import { useState } from 'react';
 
-export default function App() {
+export default function App() { 
+
+  function name(params) {
+    
+  }
 
   const [estoque, setEstoque] = useState([{
     produto: 'qualquer coisa',

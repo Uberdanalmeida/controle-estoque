@@ -129,7 +129,7 @@ h1, .cab {
 
 .cadastrando {
   display: flex;
-  box-shadow: 0 0 1.5px black;
+  border-top: 1px solid rgba(0, 0, 0, 0.199);
   align-items: center;
   background-color: #ffff;
   height: 55px;
