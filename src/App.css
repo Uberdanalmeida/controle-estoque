@@ -66,6 +66,7 @@ input {
 .busca {
   display: flex;
   align-items: center;
+  cursor: pointer;
   gap: 16px;
   margin: 15px;
 }
@@ -78,6 +79,7 @@ input {
 
 .botao {
   background-image: linear-gradient(to right, #77A7FF, #1877F2);
+  cursor: pointer;
   border-radius: 5px;
   display: flex;
   align-items: center;
