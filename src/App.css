@@ -144,3 +144,10 @@ h1, .cab {
   width: 50px;
   justify-content: space-between;
 }
+
+.novoProduto {
+  border: 1px solid blue;
+  width: 50%;
+  margin: auto;
+  padding: 15px;
+}

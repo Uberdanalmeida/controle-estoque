@@ -3,6 +3,7 @@ import Header from "./Components/Header";
 import Main from "./Components/Main";
 import Aside from "./Components/Aside";
 import Cadastro from './Components/Cadastro';
+import Modal from './Components/Modal';
 import { useState } from 'react';
 
 export default function App() { 
@@ -24,6 +25,7 @@ export default function App() {
       <Main></Main>
       <Aside></Aside>
       <Cadastro></Cadastro>
+      <Modal></Modal>
     </div>
   )
 }

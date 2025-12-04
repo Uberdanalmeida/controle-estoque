@@ -2,7 +2,7 @@ export default function Modal() {
     return(
         <div className="novoProduto">
             <form action="" method="get">
-            <h1>Novo Produto</h1>
+            <h2>Novo Produto</h2>
             <p>Nome do Produto *</p>
             <input type="text" name="" id="" placeholder="Ex: Notebook Dell"/>
             <p>Descrição</p>
