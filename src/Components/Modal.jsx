@@ -3,7 +3,7 @@ export default function Modal() {
         <div className="novoProduto">
             <form action="" method="get">
 
-            <h2>Novo Produto *</h2>
+            <h2 className="novo-product">Novo Produto <span className="x">x</span></h2>
 
             <span>Nome do Produto *
             <p><input type="text" name="" id="ExInput" placeholder="Ex: Notebook Dell"/></p>
@@ -27,7 +27,7 @@ export default function Modal() {
 
             <div className="CancelaAdicionar">
                 <input className="AdiCancel" type="button" value="Cancelar" />
-                <input className="AdiCancel" type="button" value="Adicionar" />
+                <input className="AdiCancel" id="botao-azul" type="button" value="Adicionar" />
             </div>
             </form>
         </div>

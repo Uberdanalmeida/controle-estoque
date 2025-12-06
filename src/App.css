@@ -147,7 +147,7 @@ h1, .cab {
 
 .novoProduto {
   background-color: #ffff;
-  border: 1px solid blue;
+  border-radius: 8px;
   padding: 15px;
   width: 390px;
   margin: auto;
@@ -165,7 +165,7 @@ h1, .cab {
 
 /* Estilo geral para todos os inputs, incluindo os botões */
 input {
-  background-color: #F2F4F7;
+  background-color: #f2f4f7ea;
   border: none;
   padding: 5px;
   list-style-type: none; /* Desnecessário em input, mas mantido */
@@ -208,8 +208,16 @@ input {
   padding: 10px; /* Aumenta o clique */
 }
 
-/* Estilo do Formulário */
 form {
   padding: 15px;
-  background-color: orange;
+}
+
+#botao-azul {
+  background-image: linear-gradient(to right, rgb(0, 204, 255), rgb(0, 153, 255));
+}
+
+.novo-product {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
 }
