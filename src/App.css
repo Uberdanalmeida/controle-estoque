@@ -146,8 +146,70 @@ h1, .cab {
 }
 
 .novoProduto {
+  background-color: #ffff;
   border: 1px solid blue;
-  width: 50%;
-  margin: auto;
   padding: 15px;
+  width: 390px;
+  margin: auto;
+}
+
+/* Aplicando estilos de espaçamento aos contêineres de cada campo */
+.novoProduto span {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.novoProduto span p {
+  margin-bottom: 0;
+}
+
+/* Estilo geral para todos os inputs, incluindo os botões */
+input {
+  background-color: #F2F4F7;
+  border: none;
+  padding: 5px;
+  list-style-type: none; /* Desnecessário em input, mas mantido */
+  border-radius: 4px;
+}
+
+/* OTIMIZADO: Estilo para todos os campos de texto/número */
+/* Mantive o ID por agora, mas a recomendação é trocar para CLASSE */
+#ExInput {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px; /* Aumentei um pouco o padding para melhor visualização */
+}
+
+/* Contêiner de Quantidade e Preço (para alinhar lado a lado) */
+.quantidadePreco {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px; /* Adiciona o espaçamento do span */
+}
+
+/* OTIMIZADO: Definindo a largura para 50% para que cada input ocupe metade do espaço */
+.quanPre {
+  width: 50%; /* Cada um ocupa metade do .quantidadePreco */
+}
+
+/* Contêiner dos botões Cancelar e Adicionar */
+.CancelaAdicionar {
+  display: flex;
+  gap: 8px;
+  /* width: 100%; é redundante em display: flex se for um bloco */
+}
+
+/* OTIMIZADO: Estilo para os botões */
+.AdiCancel {
+  /* display: flex; é desnecessário neste contexto, pois o input já é um elemento inline-block/substituído */
+  width: 100%; /* Garante que os botões dividam o espaço igualmente (50% cada) */
+  cursor: pointer;
+  text-align: center; /* Centraliza o texto */
+  padding: 10px; /* Aumenta o clique */
+}
+
+/* Estilo do Formulário */
+form {
+  padding: 15px;
+  background-color: orange;
 }
