@@ -7,11 +7,6 @@ import Modal from './Components/Modal';
 import { useState } from 'react';
 
 export default function App() { 
-
-  function name(params) {
-    
-  }
-
   const [estoque, setEstoque] = useState([{
     produto: 'qualquer coisa',
     categoria: '1212',
