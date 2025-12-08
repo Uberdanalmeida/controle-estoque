@@ -8,6 +8,26 @@
 
 body {
   background-color: #F2F4F7;
+  height: 100vh;
+}
+
+.overlay {
+  display: flex;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.199);
+  height: 100%;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+.principal {
+  height: 100%;
+  position: relative;
+}
+
+#root {
+  height: 100%;
 }
 
 .butao {
@@ -220,4 +240,8 @@ form {
   display: flex;
   justify-content: space-between;
   padding-bottom: 8px;
+}
+
+.x {
+  cursor: pointer;
 }

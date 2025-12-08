@@ -1,9 +1,10 @@
-export default function Modal() {
+export default function Modal({ fecharModal }) {
     return(
-        <div className="novoProduto">
+       <div className="overlay">
+         <div className="novoProduto">
             <form action="" method="get">
 
-            <h2 className="novo-product">Novo Produto <span className="x">x</span></h2>
+            <h2 className="novo-product">Novo Produto <span className="x" onClick={fecharModal}>x</span></h2>
 
             <span>Nome do Produto *
             <p><input type="text" name="" id="ExInput" placeholder="Ex: Notebook Dell"/></p>
@@ -26,10 +27,13 @@ export default function Modal() {
             </span>
 
             <div className="CancelaAdicionar">
-                <input className="AdiCancel" type="button" value="Cancelar" />
+                <input className="AdiCancel" type="button" value="Cancelar" onClick={ fecharModal }/>
+
                 <input className="AdiCancel" id="botao-azul" type="button" value="Adicionar" />
             </div>
+
             </form>
         </div>
+       </div>
     )
 }
