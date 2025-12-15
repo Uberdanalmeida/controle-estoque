@@ -52,6 +52,7 @@ body {
 input {
   background-color: #F2F4F7;
   border: none;
+  outline: none;
   padding: 5px;
   list-style-type: none;
 }
