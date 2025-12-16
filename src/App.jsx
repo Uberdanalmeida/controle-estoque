@@ -7,7 +7,15 @@ import Modal from './Components/Modal';
 import { useState } from 'react';
 
 export default function App() { 
+  
   const [exibirModal, setExibirModal] = useState(false)
+  const [cadastroUsuario, setCadastroUsuario] = useState(false)
+
+  function MostrarCadastro() {
+    alert("Produto Adicionado com Sucesso!")
+    setCadastroUsuario(true)
+  }
+    
   
   function abrirModal() {
     setExibirModal(true)
@@ -22,8 +30,8 @@ export default function App() {
       <Header abrirModal={abrirModal}/>
       <Main/>
       <Aside/>
-      <Cadastro/>
-      { exibirModal && <Modal fecharModal={ fecharModal }/>}
+      { cadastroUsuario && <Cadastro /> }
+      { exibirModal && <Modal fecharModal={ fecharModal } MostrarCadastro={MostrarCadastro}/>}
     </div>
   )
 }

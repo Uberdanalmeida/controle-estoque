@@ -1,4 +1,4 @@
-export default function Modal({ fecharModal }) {
+export default function Modal({ fecharModal, MostrarCadastro }) {
     return(
        <div className="overlay">
          <div className="novoProduto">
@@ -29,7 +29,7 @@ export default function Modal({ fecharModal }) {
             <div className="CancelaAdicionar">
                 <input className="AdiCancel" type="button" value="Cancelar" onClick={ fecharModal }/>
 
-                <input className="AdiCancel" id="botao-azul" type="button" value="Adicionar" />
+                <input className="AdiCancel" id="botao-azul" type="button" value="Adicionar" onClick={MostrarCadastro}/>
             </div>
 
             </form>
