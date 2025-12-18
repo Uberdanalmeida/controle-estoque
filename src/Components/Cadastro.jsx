@@ -6,11 +6,11 @@ export default function Cadastro() {
     return (
         <div className="cadastro">
             <div className="descricao">
-                <span>Produto</span>
-                <span>Categoria</span>
+                <span>Nome do Produto</span>
+                <span>Descrição</span>
                 <span>Quantidade</span>
-                <span>Preços</span>
-                <span>Ações</span>
+                <span>Preço</span>
+                <span>Categoria</span>
             </div>
             <div className="cadastrando">
                 <span>qualquer coisa</span>
