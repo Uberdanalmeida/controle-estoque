@@ -143,22 +143,26 @@ h1, .cab {
   border-radius: 5px;
 }
 
-.descricao {
-  display: flex;
-  height: 25px;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
+.descricao span:first-child, 
+.cadastrando span:first-child {
+    text-align: center;
 }
 
-.cadastrando {
-  display: flex;
+.descricao, .cadastrando {
+    display: grid;
+    /* Define 5 colunas de tamanhos iguais (fr = fraction) */
+    grid-template-columns: repeat(5, 1fr); 
+    align-items: center;
+    padding: 10px;
+}
+
+.descricao span, .cadastrando span {
+    text-align: center; /* Centraliza o conteúdo dentro da célula do grid */
+}
+
+.cadastrando { 
   border-top: 1px solid rgba(0, 0, 0, 0.199);
-  align-items: center;
   background-color: #ffff;
-  height: 55px;
-  justify-content: space-between;
-  padding: 10px;
 }
 
 .icones {

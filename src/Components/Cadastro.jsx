@@ -17,7 +17,7 @@ export default function Cadastro() {
                 <span>1212</span>
                 <span>10</span>
                 <span>R$ 100,00</span>
-                <span className="icones"><GoPencil color="blue" /> <FaRegTrashAlt color="red" /></span>
+                <span><GoPencil color="blue" /> <FaRegTrashAlt color="red" /></span>
             </div>
         </div>
     )
