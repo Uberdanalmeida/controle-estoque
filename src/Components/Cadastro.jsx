@@ -1,7 +1,7 @@
 import { GoPencil } from "react-icons/go";
 import { FaRegTrashAlt } from "react-icons/fa";
 
-export default function Cadastro() {
+export default function Cadastro({ listaProdutos }) {
 
     return (
         <div className="cadastro">
@@ -12,13 +12,19 @@ export default function Cadastro() {
                 <span>Preço</span>
                 <span>Categoria</span>
             </div>
-            <div className="cadastrando">
-                <span>qualquer coisa</span>
-                <span>1212</span>
-                <span>10</span>
-                <span>R$ 100,00</span>
-                <span><GoPencil color="blue" /> <FaRegTrashAlt color="red" /></span>
-            </div>
+
+        {listaProdutos.map((item, index) => (
+        <div className="cadastrando" key={index}>
+          <span>{item.produto}</span>
+          <span>{item.descricao}</span>
+          <span>{item.quantidade}</span>
+          <span>R$ {item.preco}</span>
+          <span>{item.categoria}</span>
+          <span>
+            <GoPencil color="blue" /> <FaRegTrashAlt color="red" />
+          </span>
         </div>
+      ))}
+    </div>
     )
 }

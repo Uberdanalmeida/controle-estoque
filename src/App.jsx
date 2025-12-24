@@ -9,11 +9,12 @@ import { useState } from 'react';
 export default function App() { 
   
   const [exibirModal, setExibirModal] = useState(false)
-  const [cadastroUsuario, setCadastroUsuario] = useState(false)
+  const [cadastroUsuario, setCadastroUsuario] = useState([])
 
-  function MostrarCadastro() {
+  function MostrarCadastro(novoProduto) {
     alert("Produto Adicionado com Sucesso!")
-    setCadastroUsuario(true)
+    setCadastroUsuario([...cadastroUsuario, novoProduto])
+    setExibirModal(false)
   }
     
   
@@ -30,7 +31,7 @@ export default function App() {
       <Header abrirModal={abrirModal}/>
       <Main/>
       <Aside/>
-      { cadastroUsuario && <Cadastro /> }
+      <Cadastro listaProdutos={cadastroUsuario}></Cadastro>
       { exibirModal && <Modal fecharModal={ fecharModal } MostrarCadastro={MostrarCadastro}/>}
     </div>
   )
