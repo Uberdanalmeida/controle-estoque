@@ -19,10 +19,7 @@ export default function Cadastro({ listaProdutos }) {
           <span>{item.descricao}</span>
           <span>{item.quantidade}</span>
           <span>R$ {item.preco}</span>
-          <span>{item.categoria}</span>
-          <span>
-            <GoPencil color="blue" /> <FaRegTrashAlt color="red" />
-          </span>
+          <span>{item.categoria}</span>         
         </div>
       ))}
     </div>
