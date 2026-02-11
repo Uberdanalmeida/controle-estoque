@@ -27,7 +27,7 @@ export default function Modal({ fecharModal, MostrarCadastro }) {
     return(
        <div className="overlay">
          <div className="novoProduto">
-            <form action="" method="get">
+            <form onSubmit={handleSubmit}>
 
             <h2 className="novo-product">Novo Produto <span className="x" onClick={fecharModal}>x</span></h2>
 

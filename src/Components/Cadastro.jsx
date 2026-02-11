@@ -1,7 +1,8 @@
-import { GoPencil } from "react-icons/go";
-import { FaRegTrashAlt } from "react-icons/fa";
-
 export default function Cadastro({ listaProdutos }) {
+
+    if(listaProdutos.length === 0){
+        return <p style={{textAlign: "center"}}>Nenhum produto cadastrado.</p>
+    }
 
     return (
         <div className="cadastro">
