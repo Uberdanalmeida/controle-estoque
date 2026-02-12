@@ -1,29 +1,52 @@
 import { FiPackage } from "react-icons/fi";
 
-export default function Main() {
-    return(
+export default function Main({ listaProdutos }) {
+
+    const totalProdutos = listaProdutos.length;
+
+    const totalEstoque = listaProdutos.reduce((total, item) => {
+        return total + Number(item.quantidade);
+    }, 0);
+
+    const valorTotal = listaProdutos.reduce((total, item) => {
+        return total + (Number(item.quantidade) * Number(item.preco));
+    }, 0);
+
+    return (
         <div className="card">
+
             <div className="cards">
                 <div>
                     <p>Total de Produtos</p>
-                    <span className="num">1</span>
+                    <span className="num">{totalProdutos}</span>
                 </div>
-                <span className="icon"><FiPackage size={30} color="blue"/></span>
+                <span className="icon">
+                    <FiPackage size={30} color="blue"/>
+                </span>
             </div>
+
             <div className="cards">
                 <div>
                     <p>Itens em Estoque</p>
-                    <span className="num">10</span>
+                    <span className="num">{totalEstoque}</span>
                 </div>
-                <span className="icon"><FiPackage size={30} color="green"/></span>
+                <span className="icon">
+                    <FiPackage size={30} color="green"/>
+                </span>
             </div>
+
             <div className="cards">
                 <div>
                     <p>Valor Total</p>
-                    <span className="num">R$ 100,00</span>
+                    <span className="num">
+                        R$ {valorTotal.toFixed(2)}
+                    </span>
                 </div>
-                <span className="icon"><FiPackage size={30} color="blue"/></span>
+                <span className="icon">
+                    <FiPackage size={30} color="blue"/>
+                </span>
             </div>
+
         </div>
     )
 }
