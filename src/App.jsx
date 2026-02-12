@@ -26,12 +26,17 @@ export default function App() {
     setExibirModal(false)
   }
 
+  function removerProduto(indexProduto) {
+  const novaLista = cadastroUsuario.filter((_, index) => index !== indexProduto);
+  setCadastroUsuario(novaLista);
+  }
+
   return(
     <div className="principal">
       <Header abrirModal={abrirModal}/>
       <Main/>
       <Aside/>
-      <Cadastro listaProdutos={cadastroUsuario}></Cadastro>
+      <Cadastro listaProdutos={cadastroUsuario} removerProduto={removerProduto}></Cadastro>
       { exibirModal && <Modal fecharModal={ fecharModal } MostrarCadastro={MostrarCadastro}/>}
     </div>
   )
