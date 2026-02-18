@@ -20,7 +20,10 @@ export default function Cadastro({ listaProdutos, removerProduto }) {
                     <span>{item.produto}</span>
                     <span>{item.descricao}</span>
                     <span>{item.quantidade}</span>
-                    <span>R$ {item.preco}</span>
+                    <span>{Number(item.preco).toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL"
+                    })}</span>
                     <span>{item.categoria}</span>
 
                     <button 

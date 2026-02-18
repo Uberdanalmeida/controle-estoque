@@ -39,7 +39,10 @@ export default function Main({ listaProdutos }) {
                 <div>
                     <p>Valor Total</p>
                     <span className="num">
-                        R$ {valorTotal.toFixed(2)}
+                    {valorTotal.toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL"
+                    })}
                     </span>
                 </div>
                 <span className="icon">

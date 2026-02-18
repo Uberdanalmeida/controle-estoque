@@ -8,6 +8,20 @@ export default function Modal({ fecharModal, MostrarCadastro }) {
     const [preco, setPreco] = useState('');
     const [cat, setCat] = useState('');
 
+    function formatarMoeda(valor) {
+        valor = valor.replace(/\D/g, ""); // remove tudo que não é número
+        valor = (Number(valor) / 100).toFixed(2) + "";
+        valor = valor.replace(".", ",");
+        valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        return valor;
+    }
+
+    function handlePreco(e) {
+        const valorFormatado = formatarMoeda(e.target.value);
+        setPreco(valorFormatado);
+    }
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if(!nome || !qtd || !preco) return alert("Preencha os campos obrigatórios!");
@@ -16,7 +30,7 @@ export default function Modal({ fecharModal, MostrarCadastro }) {
             produto: nome,
             descricao: desc,
             quantidade: qtd,
-            preco: preco,
+            preco: Number(preco.replace(".", "").replace(",", ".")),
             categoria: cat
         };
 
