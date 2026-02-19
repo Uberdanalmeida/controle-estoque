@@ -1,3 +1,5 @@
+import { FiTrash2 } from "react-icons/fi";
+
 export default function Cadastro({ listaProdutos, removerProduto }) {
 
     if (listaProdutos.length === 0) {
@@ -12,7 +14,6 @@ export default function Cadastro({ listaProdutos, removerProduto }) {
                 <span>Quantidade</span>
                 <span>Preço</span>
                 <span>Categoria</span>
-                <span>Ações</span>
             </div>
 
             {listaProdutos.map((item, index) => (
@@ -20,17 +21,13 @@ export default function Cadastro({ listaProdutos, removerProduto }) {
                     <span>{item.produto}</span>
                     <span>{item.descricao}</span>
                     <span>{item.quantidade}</span>
-                    <span>{Number(item.preco).toLocaleString("pt-BR", {
-                        style: "currency",
-                        currency: "BRL"
-                    })}</span>
+                    <span>R$ {item.preco}</span>
                     <span>{item.categoria}</span>
-
                     <button 
-                        className="remover"
-                        onClick={() => removerProduto(index)}
-                    >
-                        Remover
+                      className="remover" onClick={() => removerProduto(index)}
+            >
+                      <FiTrash2 size={16} style={{marginRight: "6px"}} />
+                      Remover
                     </button>
                 </div>
             ))}
