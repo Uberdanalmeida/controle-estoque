@@ -291,3 +291,73 @@ form {
 .btn-remover:hover{
     background: #ffd6d6;
 }
+
+.cadastro-container{
+    background:white;
+    padding:20px;
+    border-radius:14px;
+    margin-top:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.busca-admin{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
+.tabela-produtos{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.tabela-produtos th{
+    background:#f3f4f6;
+    padding:14px;
+    text-align:left;
+}
+
+.tabela-produtos td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+}
+
+.tabela-produtos tr:hover{
+    background:#fafafa;
+}
+
+.acoes{
+    display:flex;
+    gap:8px;
+}
+
+.btn-editar{
+    background:#eef4ff;
+    border:none;
+    padding:8px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.btn-remover{
+    background:#ffecec;
+    border:none;
+    padding:8px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.btn-salvar{
+    background:#28a745;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.estoque-baixo{
+    background:#fff4f4;
+}
