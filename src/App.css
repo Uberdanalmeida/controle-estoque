@@ -198,8 +198,6 @@ input {
   border-radius: 4px;
 }
 
-/* OTIMIZADO: Estilo para todos os campos de texto/número */
-/* Mantive o ID por agora, mas a recomendação é trocar para CLASSE */
 #ExInput {
   width: 100%;
   box-sizing: border-box;
@@ -213,25 +211,20 @@ input {
   margin-bottom: 15px; /* Adiciona o espaçamento do span */
 }
 
-/* OTIMIZADO: Definindo a largura para 50% para que cada input ocupe metade do espaço */
 .quanPre {
-  width: 50%; /* Cada um ocupa metade do .quantidadePreco */
+  width: 50%;
 }
 
-/* Contêiner dos botões Cancelar e Adicionar */
 .CancelaAdicionar {
   display: flex;
   gap: 8px;
-  /* width: 100%; é redundante em display: flex se for um bloco */
 }
 
-/* OTIMIZADO: Estilo para os botões */
 .AdiCancel {
-  /* display: flex; é desnecessário neste contexto, pois o input já é um elemento inline-block/substituído */
-  width: 100%; /* Garante que os botões dividam o espaço igualmente (50% cada) */
+  width: 100%; 
   cursor: pointer;
-  text-align: center; /* Centraliza o texto */
-  padding: 10px; /* Aumenta o clique */
+  text-align: center; 
+  padding: 10px;
 }
 
 form {
