@@ -7,30 +7,43 @@ export default function Cadastro({ listaProdutos, removerProduto }) {
     }
 
     return (
-        <div className="cadastro">
-            <div className="descricao">
-                <span>Nome do Produto</span>
-                <span>Descrição</span>
-                <span>Quantidade</span>
-                <span>Preço</span>
-                <span>Categoria</span>
-            </div>
+        <div className="cadastro-container">
 
-            {listaProdutos.map((item, index) => (
-                <div className="cadastrando" key={index}>
-                    <span>{item.produto}</span>
-                    <span>{item.descricao}</span>
-                    <span>{item.quantidade}</span>
-                    <span>R$ {item.preco}</span>
-                    <span>{item.categoria}</span>
-                    <button 
-                      className="remover" onClick={() => removerProduto(index)}
-            >
-                      <FiTrash2 size={16} style={{marginRight: "6px"}} />
-                      Remover
-                    </button>
-                </div>
-            ))}
+            <table className="tabela-produtos">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Descrição</th>
+                        <th>Qtd</th>
+                        <th>Preço</th>
+                        <th>Categoria</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {listaProdutos.map((item, index) => (
+                        <tr key={index}>
+                            <td>{item.produto}</td>
+                            <td>{item.descricao}</td>
+                            <td>{item.quantidade}</td>
+                            <td>
+                              R$ {Number(item.preco).toLocaleString("pt-BR")}
+                            </td>
+                            <td>{item.categoria}</td>
+                            <td>
+                                <button 
+                                  className="btn-remover"
+                                  onClick={() => removerProduto(index)}
+                                >
+                                  <FiTrash2 size={16}/> Remover
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
         </div>
     )
 }
