@@ -10,34 +10,40 @@ export default function App() {
   
   const [exibirModal, setExibirModal] = useState(false)
 
-  // 🔹 Estado persistente
+  // 🔴 CARREGA DO LOCALSTORAGE
   const [cadastroUsuario, setCadastroUsuario] = useState(() => {
-    const dadosSalvos = localStorage.getItem("produtos");
-    return dadosSalvos ? JSON.parse(dadosSalvos) : [];
-  });
+    const dados = localStorage.getItem("produtosAdmin")
+    return dados ? JSON.parse(dados) : []
+  })
 
-  // 🔹 Sempre salva quando mudar
+  // 🔴 SALVA AUTOMÁTICO
   useEffect(() => {
-    localStorage.setItem("produtos", JSON.stringify(cadastroUsuario));
-  }, [cadastroUsuario]);
+    localStorage.setItem("produtosAdmin", JSON.stringify(cadastroUsuario))
+  }, [cadastroUsuario])
 
   function MostrarCadastro(novoProduto) {
-    alert("Produto Adicionado com Sucesso!");
-    setCadastroUsuario(prev => [...prev, novoProduto]);
-    setExibirModal(false);
+    setCadastroUsuario([...cadastroUsuario, { ...novoProduto, id: crypto.randomUUID() }])
+    setExibirModal(false)
   }
     
   function abrirModal() {
-    setExibirModal(true);
+    setExibirModal(true)
   }
 
   function fecharModal() {
-    setExibirModal(false);
+    setExibirModal(false)
   }
 
-  function removerProduto(indexProduto) {
-    const novaLista = cadastroUsuario.filter((_, index) => index !== indexProduto);
-    setCadastroUsuario(novaLista);
+  function removerProduto(idProduto) {
+    if (window.confirm("Deseja remover este produto?")) {
+      setCadastroUsuario(cadastroUsuario.filter(p => p.id !== idProduto))
+    }
+  }
+
+  function editarProduto(produtoEditado) {
+    setCadastroUsuario(
+      cadastroUsuario.map(p => p.id === produtoEditado.id ? produtoEditado : p)
+    )
   }
 
   return(
@@ -45,16 +51,14 @@ export default function App() {
       <Header abrirModal={abrirModal}/>
       <Main listaProdutos={cadastroUsuario} />
       <Aside/>
+
       <Cadastro 
         listaProdutos={cadastroUsuario} 
         removerProduto={removerProduto}
+        editarProduto={editarProduto}
       />
-      { exibirModal && (
-        <Modal 
-          fecharModal={fecharModal} 
-          MostrarCadastro={MostrarCadastro}
-        />
-      )}
+
+      { exibirModal && <Modal fecharModal={ fecharModal } MostrarCadastro={MostrarCadastro}/>}
     </div>
   )
 }
