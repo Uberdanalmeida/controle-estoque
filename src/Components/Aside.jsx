@@ -5,7 +5,10 @@ export default function Aside() {
         <div className="butao">
            <div className="busca">
             <CiSearch size={18}/> 
-            <input type="text" name="" id="" placeholder="Buscar Produtos..."/>
+            <input 
+        className="busca-admin"
+        placeholder="Buscar produtos..."
+      />
            </div>
         </div>
     )

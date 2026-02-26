@@ -47,19 +47,24 @@ export default function App() {
   }
 
   return(
-    <div className="principal">
-  <Header abrirModal={abrirModal}/>
+  <div className="principal">
+    <Header abrirModal={abrirModal}/>
 
-  <div className="container">
-    <Main listaProdutos={cadastroUsuario} />
-    <Cadastro 
-      listaProdutos={cadastroUsuario} 
-      removerProduto={removerProduto}
-      editarProduto={editarProduto}
-    />
+    <div className="container">
+      <Main listaProdutos={cadastroUsuario} />
+
+      <div className="busca">
+        <Aside/>
+      </div>
+
+      <Cadastro 
+        listaProdutos={cadastroUsuario} 
+        removerProduto={removerProduto}
+        editarProduto={editarProduto}
+      />
+    </div>
+
+    { exibirModal && <Modal fecharModal={ fecharModal } MostrarCadastro={MostrarCadastro}/> }
   </div>
-
-  { exibirModal && <Modal fecharModal={ fecharModal } MostrarCadastro={MostrarCadastro}/> }
-</div>
-  )
+)
 }

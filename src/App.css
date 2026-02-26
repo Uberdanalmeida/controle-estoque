@@ -54,16 +54,6 @@ body{
   font-weight:600;
 }
 
-.container{
-  padding:20px;
-}
-
-.busca{
-  display:flex;
-  gap:12px;
-  margin:15px;
-}
-
 input{
   background:#fff;
   border:1px solid #ddd;
@@ -71,14 +61,6 @@ input{
   border-radius:6px;
   width:100%;
   outline:none;
-}
-
-.cadastro-container{
-  background:#fff;
-  margin:15px;
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
 .busca-admin{
@@ -182,6 +164,13 @@ input{
   color:#fff;
 }
 
+.container{
+  padding:20px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* CARDS */
 .card{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -225,6 +214,16 @@ input{
   background:#e7f6ec;
 }
 
-.cards:nth-child(3) .icon{
-  background:#eef2ff;
+/* BUSCA */
+.busca{
+  margin-bottom:20px;
+}
+
+/* TABELA */
+.cadastro-container{
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.06);
+  border:1px solid #e5e7eb;
 }
