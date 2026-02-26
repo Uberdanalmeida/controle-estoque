@@ -1,15 +1,13 @@
 import { CiSearch } from "react-icons/ci";
 
 export default function Aside() {
-    return(
-        <div className="butao">
-           <div className="busca">
-            <CiSearch size={18}/> 
-            <input 
+  return(
+    <div className="input-busca">
+      <input 
         className="busca-admin"
         placeholder="Buscar produtos..."
       />
-           </div>
-        </div>
-    )
+      <CiSearch className="icone-busca"/>
+    </div>
+  )
 }

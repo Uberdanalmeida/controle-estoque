@@ -63,14 +63,6 @@ input{
   outline:none;
 }
 
-.busca-admin{
-  width:100%;
-  padding:12px;
-  margin-bottom:15px;
-  border-radius:8px;
-  border:1px solid #ddd;
-}
-
 .tabela-produtos{
   width:100%;
   border-collapse:collapse;
@@ -217,6 +209,29 @@ input{
 /* BUSCA */
 .busca{
   margin-bottom:20px;
+}
+
+.input-busca{
+  position:relative;
+  width:100%;
+}
+
+.busca-admin{
+  width:100%;
+  padding:12px 40px 12px 14px; /* espaço pro ícone */
+  border-radius:8px;
+  border:1px solid #ddd;
+  outline:none;
+}
+
+.icone-busca{
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:18px;
+  color:#98A2B3;
+  pointer-events:none;
 }
 
 /* TABELA */
