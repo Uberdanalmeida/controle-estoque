@@ -1,14 +1,12 @@
 import { FiTrash2, FiEdit } from "react-icons/fi";
 import { useState } from "react";
 
-export default function Cadastro({ listaProdutos, removerProduto, editarProduto }) {
+export default function Cadastro({ listaProdutos, removerProduto, editarProduto,busca}) {
 
-    const [busca, setBusca] = useState("")
     const [editando, setEditando] = useState(null)
 
-    const produtosFiltrados = listaProdutos.filter(p =>
-        p.produto.toLowerCase().includes(busca.toLowerCase())
-    )
+    const produtosFiltrados = listaProdutos.filter(p =>`${p.produto || ""} ${p.descricao || ""} ${p.categoria || ""}`.toLowerCase() .includes((busca || "").toLowerCase())
+   )
 
     function salvarEdicao() {
         editarProduto(editando)
@@ -21,13 +19,6 @@ export default function Cadastro({ listaProdutos, removerProduto, editarProduto 
 
     return (
         <div className="cadastro-container">
-
-            <input
-                className="busca-admin"
-                placeholder="Buscar produto..."
-                value={busca}
-                onChange={e => setBusca(e.target.value)}
-            />
 
             <table className="tabela-produtos">
                 <thead>

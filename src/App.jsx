@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 export default function App() { 
   
   const [exibirModal, setExibirModal] = useState(false)
+  const [busca, setBusca] = useState("")
 
   // 🔴 CARREGA DO LOCALSTORAGE
   const [cadastroUsuario, setCadastroUsuario] = useState(() => {
@@ -54,7 +55,7 @@ export default function App() {
       <Main listaProdutos={cadastroUsuario} />
 
       <div className="busca">
-        <Aside/>
+        <Aside busca={busca} setBusca={setBusca}/>
       </div>
 
       <Cadastro 
