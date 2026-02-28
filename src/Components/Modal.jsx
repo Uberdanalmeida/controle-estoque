@@ -43,7 +43,10 @@ export default function Modal({ fecharModal, MostrarCadastro }) {
          <div className="novoProduto">
             <form onSubmit={handleSubmit}>
 
-            <h2 className="novo-product">Novo Produto <span className="x" onClick={fecharModal}>x</span></h2>
+            <div className="modal-header">
+                <h2>Novo Produto</h2>
+                <button className="fechar" onClick={fecharModal}>×</button>
+            </div>
 
             <span>Nome do Produto *
             <p><input type="text" name="" value={nome} onChange={(e) => setNome(e.target.value)} id="ExInput" placeholder="Ex: Notebook Dell"/></p>

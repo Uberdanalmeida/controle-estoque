@@ -254,3 +254,26 @@ input{
   box-shadow:0 1px 3px rgba(0,0,0,0.06);
   border:1px solid #e5e7eb;
 }
+
+.modal-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.fechar{
+  background:none;
+  border:none;
+  font-size:22px;
+  cursor:pointer;
+  color:#667085;
+  padding:4px 8px;
+  border-radius:6px;
+  transition:all .2s ease;
+}
+
+.fechar:hover{
+  background:#f2f4f7;
+  color:#111827;
+}
