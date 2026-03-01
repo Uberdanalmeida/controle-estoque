@@ -10,6 +10,7 @@ export default function App() {
   
   const [exibirModal, setExibirModal] = useState(false)
   const [busca, setBusca] = useState("")
+  const [toast, setToast] = useState("")
 
   // 🔴 CARREGA DO LOCALSTORAGE
   const [cadastroUsuario, setCadastroUsuario] = useState(() => {
@@ -23,9 +24,16 @@ export default function App() {
   }, [cadastroUsuario])
 
   function MostrarCadastro(novoProduto) {
-    setCadastroUsuario([...cadastroUsuario, { ...novoProduto, id: crypto.randomUUID() }])
-    setExibirModal(false)
-  }
+  setCadastroUsuario([
+    ...cadastroUsuario,
+    { ...novoProduto, id: crypto.randomUUID() }
+  ])
+
+  setToast("Produto adicionado com sucesso!")
+  setExibirModal(false)
+
+  setTimeout(() => setToast(""), 3000)
+}
     
   function abrirModal() {
     setExibirModal(true)
@@ -66,6 +74,8 @@ export default function App() {
     </div>
 
     { exibirModal && <Modal fecharModal={ fecharModal } MostrarCadastro={MostrarCadastro}/> }
+
+    {toast && <div className="toast">{toast}</div>}
   </div>
 )
 }

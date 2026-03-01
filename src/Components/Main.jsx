@@ -28,7 +28,9 @@ export default function Main({ listaProdutos }) {
             <div className="cards">
                 <div>
                     <p>Itens em Estoque</p>
-                    <span className="num">{totalEstoque}</span>
+                    <span className={`num ${totalEstoque < 5 ? "alerta" : ""}`}>
+  {totalEstoque}
+</span>
                 </div>
                 <span className="icon">
                     <FiPackage size={30} color="green"/>

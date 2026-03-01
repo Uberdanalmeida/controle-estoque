@@ -5,8 +5,12 @@ export default function Cadastro({ listaProdutos, removerProduto, editarProduto,
 
     const [editando, setEditando] = useState(null)
 
-    const produtosFiltrados = listaProdutos.filter(p =>`${p.produto || ""} ${p.descricao || ""} ${p.categoria || ""}`.toLowerCase() .includes((busca || "").toLowerCase())
-   )
+    const produtosFiltrados = listaProdutos.filter(p => {
+  const texto =
+    `${p.produto || ""} ${p.descricao || ""} ${p.categoria || ""}`.toLowerCase()
+
+  return texto.includes((busca || "").toLowerCase())
+})
 
     function salvarEdicao() {
         editarProduto(editando)

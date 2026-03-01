@@ -115,7 +115,9 @@ input{
 }
 
 .estoque-baixo{
-  background:#fff4f4;
+  background:#fff7ed;
+  color:#9a3412;
+  font-weight:500;
 }
 
 .overlay{
@@ -276,4 +278,21 @@ input{
 .fechar:hover{
   background:#f2f4f7;
   color:#111827;
+}
+
+.toast{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#111827;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:8px;
+  box-shadow:0 10px 20px rgba(0,0,0,.15);
+  animation:fadeIn .3s ease;
+  z-index:1000;
+}
+
+.alerta{
+  color:#dc2626;
 }
