@@ -4,6 +4,7 @@ import Main from "./Components/Main";
 import Aside from "./Components/Aside";
 import Cadastro from './Components/Cadastro';
 import Modal from './Components/Modal';
+import Grafico from './Components/Grafico';
 import { useState, useEffect } from 'react';
 
 export default function App() { 
@@ -61,6 +62,8 @@ export default function App() {
 
     <div className="container">
       <Main listaProdutos={cadastroUsuario} />
+      
+      <Grafico listaProdutos={cadastroUsuario} />
 
       <div className="busca">
         <Aside busca={busca} setBusca={setBusca}/>
