@@ -296,3 +296,7 @@ input{
 .alerta{
   color:#dc2626;
 }
+
+.icone-busca{
+  pointer-events:none;
+}
