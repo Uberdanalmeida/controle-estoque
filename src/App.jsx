@@ -70,10 +70,12 @@ export default function App() {
       </div>
 
       <Cadastro 
-        listaProdutos={cadastroUsuario} 
-        removerProduto={removerProduto}
-        editarProduto={editarProduto}
-      />
+  listaProdutos={cadastroUsuario} 
+  removerProduto={removerProduto}
+  editarProduto={editarProduto}
+  busca={busca}
+/>
+
     </div>
 
     { exibirModal && <Modal fecharModal={ fecharModal } MostrarCadastro={MostrarCadastro}/> }

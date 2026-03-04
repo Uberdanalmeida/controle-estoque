@@ -1,7 +1,7 @@
 import { FiTrash2, FiEdit } from "react-icons/fi";
 import { useState } from "react";
 
-export default function Cadastro({ listaProdutos, removerProduto, editarProduto,busca}) {
+export default function Cadastro({ listaProdutos, removerProduto, editarProduto, busca}) {
 
     const [editando, setEditando] = useState(null)
 
