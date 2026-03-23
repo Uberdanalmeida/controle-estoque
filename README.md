@@ -1,4 +1,6 @@
-# Sistema de Estoque React
+![Sistema-de-estoque](/src/imagem/sistema-estoque.png)
+
+# Sistema de Estoque
 
 Projeto desenvolvido para gerenciamento de produtos com dashboard interativo.
 
@@ -14,6 +16,3 @@ Projeto desenvolvido para gerenciamento de produtos com dashboard interativo.
 - CSS moderno
 - Hooks
 - LocalStorage API
-
-## Deploy
-Link: https://seu-projeto.vercel.app
