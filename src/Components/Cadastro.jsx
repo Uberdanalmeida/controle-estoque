@@ -1,6 +1,8 @@
 import { FiTrash2, FiEdit } from "react-icons/fi";
 import { useState } from "react";
 
+// ... seus imports
+
 export default function Cadastro({
   listaProdutos,
   removerProduto,
@@ -9,21 +11,23 @@ export default function Cadastro({
 }) {
   const [editando, setEditando] = useState(null);
 
+  // Filtro permanece igual
   const produtosFiltrados = listaProdutos.filter((p) => {
-    const texto =
-      `${p.produto || ""} ${p.descricao || ""} ${p.categoria || ""}`.toLowerCase();
-
+    const texto = `${p.produto || ""} ${p.descricao || ""} ${p.categoria || ""}`.toLowerCase();
     return texto.includes((busca || "").toLowerCase());
   });
 
   function salvarEdicao() {
-    editarProduto(editando);
-    setEditando(null);
-  }
-
-  if (listaProdutos.length === 0) {
-    return <p style={{ textAlign: "center" }}>Nenhum produto cadastrado.</p>;
-  }
+  const produtoFormatado = {
+    ...editando,
+    // Se estiver vazio, assume 0 para não quebrar o banco
+    quantidade: parseInt(editando.quantidade) || 0,
+    preco: parseFloat(editando.preco) || 0
+  };
+  
+  editarProduto(produtoFormatado);
+  setEditando(null);
+}
 
   return (
     <div className="cadastro-container">
