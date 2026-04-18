@@ -7,54 +7,62 @@ import Modal from "./Components/Modal";
 import Grafico from "./Components/Grafico";
 import { useState, useEffect } from "react";
 
+import { supabase } from "./supabaseClient";
+// ... outros imports
+
 export default function App() {
-  const [exibirModal, setExibirModal] = useState(false);
-  const [busca, setBusca] = useState("");
-  const [toast, setToast] = useState("");
+  const [cadastroUsuario, setCadastroUsuario] = useState([]);
 
-  // 🔴 CARREGA DO LOCALSTORAGE
-  const [cadastroUsuario, setCadastroUsuario] = useState(() => {
-    const dados = localStorage.getItem("produtosAdmin");
-    return dados ? JSON.parse(dados) : [];
-  });
-
-  // 🔴 SALVA AUTOMÁTICO
+  // BUSCAR PRODUTOS (SELECT)
   useEffect(() => {
-    localStorage.setItem("produtosAdmin", JSON.stringify(cadastroUsuario));
-  }, [cadastroUsuario]);
+    getProdutos();
+  }, []);
 
-  function MostrarCadastro(novoProduto) {
-    setCadastroUsuario([
-      ...cadastroUsuario,
-      { ...novoProduto, id: crypto.randomUUID() },
-    ]);
-
-    setToast("Produto adicionado com sucesso!");
-    setExibirModal(false);
-
-    setTimeout(() => setToast(""), 3000);
+  async function getProdutos() {
+    const { data, error } = await supabase.from('produtos').select('*');
+    if (data) setCadastroUsuario(data);
   }
 
-  function abrirModal() {
-    setExibirModal(true);
-  }
+  // ADICIONAR PRODUTO (INSERT)
+  async function MostrarCadastro(novoProduto) {
+    const { data, error } = await supabase
+      .from('produtos')
+      .insert([novoProduto])
+      .select();
 
-  function fecharModal() {
-    setExibirModal(false);
-  }
-
-  function removerProduto(idProduto) {
-    if (window.confirm("Deseja remover este produto?")) {
-      setCadastroUsuario(cadastroUsuario.filter((p) => p.id !== idProduto));
+    if (!error) {
+      setCadastroUsuario([...cadastroUsuario, data[0]]);
+      setToast("Produto adicionado com sucesso!");
+      setExibirModal(false);
     }
   }
 
-  function editarProduto(produtoEditado) {
-    setCadastroUsuario(
-      cadastroUsuario.map((p) =>
-        p.id === produtoEditado.id ? produtoEditado : p,
-      ),
-    );
+  // REMOVER PRODUTO (DELETE)
+  async function removerProduto(idProduto) {
+    if (window.confirm("Deseja remover este produto?")) {
+      const { error } = await supabase
+        .from('produtos')
+        .delete()
+        .eq('id', idProduto);
+
+      if (!error) {
+        setCadastroUsuario(cadastroUsuario.filter((p) => p.id !== idProduto));
+      }
+    }
+  }
+
+  // EDITAR PRODUTO (UPDATE)
+  async function editarProduto(produtoEditado) {
+    const { error } = await supabase
+      .from('produtos')
+      .update(produtoEditado)
+      .eq('id', produtoEditado.id);
+
+    if (!error) {
+      setCadastroUsuario(
+        cadastroUsuario.map((p) => (p.id === produtoEditado.id ? produtoEditado : p))
+      );
+    }
   }
 
   return (
