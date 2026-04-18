@@ -6,24 +6,39 @@ import Cadastro from "./Components/Cadastro";
 import Modal from "./Components/Modal";
 import Grafico from "./Components/Grafico";
 import { useState, useEffect } from "react";
-
 import { supabase } from "./supabaseClient";
-// ... outros imports
 
 export default function App() {
+  // 1. ESTADOS (O que estava faltando)
   const [cadastroUsuario, setCadastroUsuario] = useState([]);
+  const [exibirModal, setExibirModal] = useState(false);
+  const [busca, setBusca] = useState("");
+  const [toast, setToast] = useState("");
 
-  // BUSCAR PRODUTOS (SELECT)
+  // 2. BUSCAR PRODUTOS (SELECT)
   useEffect(() => {
     getProdutos();
   }, []);
 
   async function getProdutos() {
     const { data, error } = await supabase.from('produtos').select('*');
-    if (data) setCadastroUsuario(data);
+    if (error) {
+      console.error("Erro ao buscar:", error.message);
+    } else {
+      setCadastroUsuario(data || []);
+    }
   }
 
-  // ADICIONAR PRODUTO (INSERT)
+  // 3. FUNÇÕES DE INTERFACE (O que causou o erro)
+  function abrirModal() {
+    setExibirModal(true);
+  }
+
+  function fecharModal() {
+    setExibirModal(false);
+  }
+
+  // 4. ADICIONAR PRODUTO (INSERT)
   async function MostrarCadastro(novoProduto) {
     const { data, error } = await supabase
       .from('produtos')
@@ -34,10 +49,13 @@ export default function App() {
       setCadastroUsuario([...cadastroUsuario, data[0]]);
       setToast("Produto adicionado com sucesso!");
       setExibirModal(false);
+      setTimeout(() => setToast(""), 3000);
+    } else {
+      console.error("Erro ao inserir:", error.message);
     }
   }
 
-  // REMOVER PRODUTO (DELETE)
+  // 5. REMOVER PRODUTO (DELETE)
   async function removerProduto(idProduto) {
     if (window.confirm("Deseja remover este produto?")) {
       const { error } = await supabase
@@ -51,7 +69,7 @@ export default function App() {
     }
   }
 
-  // EDITAR PRODUTO (UPDATE)
+  // 6. EDITAR PRODUTO (UPDATE)
   async function editarProduto(produtoEditado) {
     const { error } = await supabase
       .from('produtos')
@@ -71,7 +89,6 @@ export default function App() {
 
       <div className="container">
         <Main listaProdutos={cadastroUsuario} />
-
         <Grafico listaProdutos={cadastroUsuario} />
 
         <div className="busca">
