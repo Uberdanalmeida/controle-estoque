@@ -1,97 +1,144 @@
 import { FiTrash2, FiEdit } from "react-icons/fi";
 import { useState } from "react";
 
-export default function Cadastro({ listaProdutos, removerProduto, editarProduto, busca}) {
+export default function Cadastro({
+  listaProdutos,
+  removerProduto,
+  editarProduto,
+  busca,
+}) {
+  const [editando, setEditando] = useState(null);
 
-    const [editando, setEditando] = useState(null)
+  const produtosFiltrados = listaProdutos.filter((p) => {
+    const texto =
+      `${p.produto || ""} ${p.descricao || ""} ${p.categoria || ""}`.toLowerCase();
 
-    const produtosFiltrados = listaProdutos.filter(p => {
-  const texto =
-    `${p.produto || ""} ${p.descricao || ""} ${p.categoria || ""}`.toLowerCase()
+    return texto.includes((busca || "").toLowerCase());
+  });
 
-  return texto.includes((busca || "").toLowerCase())
-})
+  function salvarEdicao() {
+    editarProduto(editando);
+    setEditando(null);
+  }
 
-    function salvarEdicao() {
-        editarProduto(editando)
-        setEditando(null)
-    }
+  if (listaProdutos.length === 0) {
+    return <p style={{ textAlign: "center" }}>Nenhum produto cadastrado.</p>;
+  }
 
-    if (listaProdutos.length === 0) {
-        return <p style={{ textAlign: "center" }}>Nenhum produto cadastrado.</p>
-    }
+  return (
+    <div className="cadastro-container">
+      <table className="tabela-produtos">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Descrição</th>
+            <th>Qtd</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
 
-    return (
-        <div className="cadastro-container">
+        <tbody>
+          {produtosFiltrados.map((item) => (
+            <tr
+              key={item.id}
+              className={item.quantidade < 3 ? "estoque-baixo" : ""}
+            >
+              <td>
+                {editando?.id === item.id ? (
+                  <input
+                    value={editando.produto}
+                    onChange={(e) =>
+                      setEditando({ ...editando, produto: e.target.value })
+                    }
+                  />
+                ) : (
+                  item.produto
+                )}
+              </td>
 
-            <table className="tabela-produtos">
-                <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Descrição</th>
-                        <th>Qtd</th>
-                        <th>Preço</th>
-                        <th>Categoria</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
+              <td>
+                {editando?.id === item.id ? (
+                  <input
+                    value={editando.descricao}
+                    onChange={(e) =>
+                      setEditando({ ...editando, descricao: e.target.value })
+                    }
+                  />
+                ) : (
+                  item.descricao
+                )}
+              </td>
 
-                <tbody>
-                    {produtosFiltrados.map(item => (
-                        <tr key={item.id} className={item.quantidade < 3 ? "estoque-baixo" : ""}>
+              <td>
+                {editando?.id === item.id ? (
+                  <input
+                    type="number"
+                    value={editando.quantidade}
+                    onChange={(e) =>
+                      setEditando({ ...editando, quantidade: e.target.value })
+                    }
+                  />
+                ) : (
+                  item.quantidade
+                )}
+              </td>
 
-                            <td>
-                              {editando?.id === item.id ?
-                                <input value={editando.produto} onChange={e => setEditando({...editando, produto:e.target.value})}/>
-                                : item.produto}
-                            </td>
+              <td>
+                {editando?.id === item.id ? (
+                  <input
+                    type="number"
+                    value={editando.preco}
+                    onChange={(e) =>
+                      setEditando({ ...editando, preco: e.target.value })
+                    }
+                  />
+                ) : (
+                  `R$ ${Number(item.preco).toLocaleString("pt-BR")}`
+                )}
+              </td>
 
-                            <td>
-                              {editando?.id === item.id ?
-                                <input value={editando.descricao} onChange={e => setEditando({...editando, descricao:e.target.value})}/>
-                                : item.descricao}
-                            </td>
+              <td>
+                {editando?.id === item.id ? (
+                  <input
+                    value={editando.categoria}
+                    onChange={(e) =>
+                      setEditando({ ...editando, categoria: e.target.value })
+                    }
+                  />
+                ) : (
+                  item.categoria
+                )}
+              </td>
 
-                            <td>
-                              {editando?.id === item.id ?
-                                <input type="number" value={editando.quantidade} onChange={e => setEditando({...editando, quantidade:e.target.value})}/>
-                                : item.quantidade}
-                            </td>
+              <td className="acoes">
+                {editando?.id === item.id ? (
+                  <button className="btn-salvar" onClick={salvarEdicao}>
+                    Salvar
+                  </button>
+                ) : (
+                  <>
+                    <button
+                      className="btn-editar"
+                      onClick={() => setEditando(item)}
+                    >
+                      <FiEdit />
+                    </button>
 
-                            <td>
-                              {editando?.id === item.id ?
-                                <input type="number" value={editando.preco} onChange={e => setEditando({...editando, preco:e.target.value})}/>
-                                : `R$ ${Number(item.preco).toLocaleString("pt-BR")}`}
-                            </td>
-
-                            <td>
-                              {editando?.id === item.id ?
-                                <input value={editando.categoria} onChange={e => setEditando({...editando, categoria:e.target.value})}/>
-                                : item.categoria}
-                            </td>
-
-                            <td className="acoes">
-                                {editando?.id === item.id ? (
-                                    <button className="btn-salvar" onClick={salvarEdicao}>
-                                      Salvar
-                                    </button>
-                                ) : (
-                                    <>
-                                      <button className="btn-editar" onClick={() => setEditando(item)}>
-                                        <FiEdit/>
-                                      </button>
-
-                                      <button className="btn-remover" onClick={() => removerProduto(item.id)}>
-                                        <FiTrash2/>
-                                      </button>
-                                    </>
-                                )}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-
-        </div>
-    )
+                    <button
+                      className="btn-remover"
+                      onClick={() => removerProduto(item.id)}
+                    >
+                      <FiTrash2 />
+                    </button>
+                  </>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }

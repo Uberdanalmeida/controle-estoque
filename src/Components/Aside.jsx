@@ -1,15 +1,15 @@
 import { CiSearch } from "react-icons/ci";
 
 export default function Aside({ busca, setBusca }) {
-  return(
+  return (
     <div className="input-busca">
-      <input 
+      <input
         className="busca-admin"
         placeholder="Buscar produtos..."
         value={busca}
-        onChange={e => setBusca(e.target.value)}
+        onChange={(e) => setBusca(e.target.value)}
       />
-      <CiSearch className="icone-busca"/>
+      <CiSearch className="icone-busca" />
     </div>
-  )
+  );
 }

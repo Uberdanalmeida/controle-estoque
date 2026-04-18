@@ -8,17 +8,16 @@ import {
 } from "recharts";
 
 export default function Grafico({ listaProdutos }) {
-
   const categorias = {};
 
-  listaProdutos.forEach(p => {
+  listaProdutos.forEach((p) => {
     if (!categorias[p.categoria]) {
       categorias[p.categoria] = 0;
     }
     categorias[p.categoria] += Number(p.quantidade);
   });
 
-  const dados = Object.keys(categorias).map(cat => ({
+  const dados = Object.keys(categorias).map((cat) => ({
     categoria: cat,
     quantidade: categorias[cat],
   }));
@@ -34,7 +33,7 @@ export default function Grafico({ listaProdutos }) {
           <XAxis dataKey="categoria" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="quantidade" radius={[8,8,0,0]} />
+          <Bar dataKey="quantidade" radius={[8, 8, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>
