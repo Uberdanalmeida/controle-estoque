@@ -170,6 +170,23 @@ input {
   margin: 0 auto;
 }
 
+/* Container que ocupa o espaço onde ficaria a lista */
+.container-vazio {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;     /* Centraliza verticalmente */
+  min-height: 250px;      /* Dá altura para a mensagem não ficar colada na busca */
+  background-color: transparent; 
+}
+
+.container-vazio p {
+  color: #111827;         /* Cor cinza escuro/preto da imagem */
+  font-size: 1.1rem;      /* Tamanho levemente maior */
+  font-weight: 500;       /* Peso médio para dar destaque */
+  font-family: sans-serif;
+}
+
 /* CARDS */
 .card {
   display: grid;

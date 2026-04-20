@@ -95,12 +95,19 @@ export default function App() {
           <Aside busca={busca} setBusca={setBusca} />
         </div>
 
-        <Cadastro
-          listaProdutos={cadastroUsuario}
-          removerProduto={removerProduto}
-          editarProduto={editarProduto}
-          busca={busca}
-        />
+        {/* Se a lista for maior que zero, mostra o componente. Se não, mostra a mensagem */}
+{cadastroUsuario.length > 0 ? (
+  <Cadastro
+    listaProdutos={cadastroUsuario}
+    removerProduto={removerProduto}
+    editarProduto={editarProduto}
+    busca={busca}
+  />
+) : (
+  <div className="container-vazio">
+    <p>Nenhum produto cadastrado.</p>
+  </div>
+)}
       </div>
 
       {exibirModal && (
