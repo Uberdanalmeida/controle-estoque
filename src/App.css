@@ -318,3 +318,175 @@ input {
 .icone-busca {
   pointer-events: none;
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .cabeca {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .header {
+    justify-content: center;
+  }
+
+  .botao {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .cards {
+    padding: 15px;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .num {
+    font-size: 24px;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cadastro-container {
+    padding: 10px;
+    overflow-x: auto;
+  }
+
+  .tabela-produtos {
+    min-width: 600px; /* Ensure table doesn't shrink too much */
+  }
+
+  .tabela-produtos th,
+  .tabela-produtos td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .acoes {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .btn-editar,
+  .btn-remover,
+  .btn-salvar {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .novoProduto {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .quantidadePreco {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .CancelaAdicionar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .AdiCancel {
+    padding: 12px;
+  }
+
+  .busca-admin {
+    padding: 10px 35px 10px 12px;
+  }
+
+  .icone-busca {
+    right: 10px;
+    font-size: 16px;
+  }
+
+  .toast {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    padding: 10px 15px;
+  }
+
+  .container-vazio p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cabeca {
+    padding: 10px;
+  }
+
+  .logo {
+    height: 35px;
+    width: 35px;
+  }
+
+  .botao {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .card {
+    gap: 10px;
+  }
+
+  .cards {
+    padding: 12px;
+  }
+
+  .num {
+    font-size: 20px;
+  }
+
+  .icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .tabela-produtos th,
+  .tabela-produtos td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .novoProduto {
+    padding: 15px;
+  }
+
+  .modal-header h2 {
+    font-size: 18px;
+  }
+
+  .fechar {
+    font-size: 20px;
+  }
+
+  input {
+    padding: 8px;
+  }
+
+  .busca-admin {
+    padding: 8px 30px 8px 10px;
+  }
+
+  .icone-busca {
+    font-size: 14px;
+  }
+}
