@@ -21,7 +21,7 @@ export default function App() {
   }, []);
 
   async function getProdutos() {
-    const { data, error } = await supabase.from('produtos').select('*');
+    const { data, error } = await supabase.from("produtos").select("*");
     if (error) {
       console.error("Erro ao buscar:", error.message);
     } else {
@@ -41,7 +41,7 @@ export default function App() {
   // 4. ADICIONAR PRODUTO (INSERT)
   async function MostrarCadastro(novoProduto) {
     const { data, error } = await supabase
-      .from('produtos')
+      .from("produtos")
       .insert([novoProduto])
       .select();
 
@@ -59,9 +59,9 @@ export default function App() {
   async function removerProduto(idProduto) {
     if (window.confirm("Deseja remover este produto?")) {
       const { error } = await supabase
-        .from('produtos')
+        .from("produtos")
         .delete()
-        .eq('id', idProduto);
+        .eq("id", idProduto);
 
       if (!error) {
         setCadastroUsuario(cadastroUsuario.filter((p) => p.id !== idProduto));
@@ -72,13 +72,15 @@ export default function App() {
   // 6. EDITAR PRODUTO (UPDATE)
   async function editarProduto(produtoEditado) {
     const { error } = await supabase
-      .from('produtos')
+      .from("produtos")
       .update(produtoEditado)
-      .eq('id', produtoEditado.id);
+      .eq("id", produtoEditado.id);
 
     if (!error) {
       setCadastroUsuario(
-        cadastroUsuario.map((p) => (p.id === produtoEditado.id ? produtoEditado : p))
+        cadastroUsuario.map((p) =>
+          p.id === produtoEditado.id ? produtoEditado : p,
+        ),
       );
     }
   }
@@ -96,18 +98,18 @@ export default function App() {
         </div>
 
         {/* Se a lista for maior que zero, mostra o componente. Se não, mostra a mensagem */}
-{cadastroUsuario.length > 0 ? (
-  <Cadastro
-    listaProdutos={cadastroUsuario}
-    removerProduto={removerProduto}
-    editarProduto={editarProduto}
-    busca={busca}
-  />
-) : (
-  <div className="container-vazio">
-    <p>Nenhum produto cadastrado.</p>
-  </div>
-)}
+        {cadastroUsuario.length > 0 ? (
+          <Cadastro
+            listaProdutos={cadastroUsuario}
+            removerProduto={removerProduto}
+            editarProduto={editarProduto}
+            busca={busca}
+          />
+        ) : (
+          <div className="container-vazio">
+            <p>Nenhum produto cadastrado.</p>
+          </div>
+        )}
       </div>
 
       {exibirModal && (
