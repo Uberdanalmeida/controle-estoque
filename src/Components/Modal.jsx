@@ -42,7 +42,7 @@ export default function Modal({ fecharModal, MostrarCadastro }) {
         <form onSubmit={handleSubmit}>
           <div className="modal-header">
             <h2>Novo Produto</h2>
-            <button className="fechar" onClick={fecharModal}>
+            <button className="fechar" type="button" onClick={fecharModal}>
               ×
             </button>
           </div>
@@ -94,10 +94,11 @@ export default function Modal({ fecharModal, MostrarCadastro }) {
               Preço(R$) *
               <p>
                 <input
-                  type="number"
+                  type="text"
+                  inputMode="decimal"
                   name=""
                   value={preco}
-                  onChange={(e) => setPreco(e.target.value)}
+                  onChange={handlePreco}
                   id="ExInput"
                   placeholder="0,00"
                 />
@@ -130,9 +131,8 @@ export default function Modal({ fecharModal, MostrarCadastro }) {
             <input
               className="AdiCancel"
               id="botao-azul"
-              type="button"
+              type="submit"
               value="Adicionar"
-              onClick={handleSubmit}
             />
           </div>
         </form>
