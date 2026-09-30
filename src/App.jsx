@@ -17,17 +17,17 @@ export default function App() {
 
   // 2. BUSCAR PRODUTOS (SELECT)
   useEffect(() => {
+    async function getProdutos() {
+      const { data, error } = await supabase.from("produtos").select("*");
+      if (error) {
+        console.error("Erro ao buscar:", error.message);
+      } else {
+        setCadastroUsuario(data || []);
+      }
+    }
+
     getProdutos();
   }, []);
-
-  async function getProdutos() {
-    const { data, error } = await supabase.from("produtos").select("*");
-    if (error) {
-      console.error("Erro ao buscar:", error.message);
-    } else {
-      setCadastroUsuario(data || []);
-    }
-  }
 
   // 3. FUNÇÕES DE INTERFACE (O que causou o erro)
   function abrirModal() {
